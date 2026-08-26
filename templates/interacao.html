@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Interação com Flask</title>
+</head>
+
+<body>
+
+    <h1>Verificação de idade</h1>
+
+    <p>
+        Digite seus dados para descobrir se você pode votar e dirigir.
+    </p>
+
+    <form method="POST">
+
+        <label>Nome:</label>
+        <br>
+        <input type="text" name="nome" required>
+
+        <br><br>
+
+        <label>Sobrenome:</label>
+        <br>
+        <input type="text" name="sobrenome" required>
+
+        <br><br>
+
+        <label>Idade:</label>
+        <br>
+        <input type="number" name="idade" min="0" required>
+
+        <br><br>
+
+        <button type="submit">Verificar</button>
+
+    </form>
+
+    {% if resultado %}
+
+        <hr>
+
+        <h2>Resultado</h2>
+
+        <p>
+            Nome:
+            {{ resultado.nome }}
+            {{ resultado.sobrenome }}
+        </p>
+
+        <p>
+            Idade:
+            {{ resultado.idade }}
+        </p>
+
+        <p>
+            🗳️ {{ resultado.votar }}
+        </p>
+
+        <p>
+            🚗 {{ resultado.dirigir }}
+        </p>
+
+    {% endif %}
+
+</body>
+
+</html>
