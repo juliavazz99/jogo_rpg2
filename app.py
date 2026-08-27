@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 
 app = Flask(__name__)
 
@@ -40,6 +40,11 @@ def interacao():
         }
 
     return render_template("interacao.html", resultado=resultado)
+
+
+@app.route("/main.py")
+def main_py():
+    return send_file("main.py", mimetype="text/plain")
 
 
 if __name__ == "__main__":

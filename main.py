@@ -41,6 +41,10 @@ state = {
 
 SCENES = {
 
+    # ========================================================
+    # INÍCIO
+    # ========================================================
+
     "inicio": {
         "title": "🟨 BACKROOMS - O ÚLTIMO CORREDOR",
         "text": (
@@ -62,9 +66,15 @@ SCENES = {
         "options": [
             ("Seguir pelo corredor", "corredor"),
             ("Entrar em uma sala aberta", "sala_abandonada"),
+            ("Investigar as paredes", "investigar_paredes"),
+            ("Seguir o som dos passos", "seguir_som"),
         ],
     },
 
+
+    # ========================================================
+    # SALA ABANDONADA
+    # ========================================================
 
     "sala_abandonada": {
         "title": "🏚️ Sala Abandonada",
@@ -81,27 +91,108 @@ SCENES = {
             ("Pegar a lanterna", "pegar_lanterna"),
             ("Pegar a chave", "pegar_chave"),
             ("Pegar a água", "pegar_agua"),
+            ("Não pegar nada e sair", "sair_sala"),
         ],
     },
 
+
+    # ========================================================
+    # CORREDOR
+    # ========================================================
 
     "corredor": {
         "title": "🚪 O Corredor",
         "text": (
             "Você continua andando.\n\n"
             "O corredor parece não ter fim.\n\n"
-            "Depois de alguns minutos, encontra duas opções.\n\n"
+            "Depois de alguns minutos, encontra quatro caminhos.\n\n"
             "À esquerda existe uma porta vermelha.\n\n"
             "À direita existe uma escada que desce para um "
             "nível completamente escuro.\n\n"
+            "Atrás de você existe uma porta que não estava ali antes.\n\n"
+            "Na parede existe uma pequena passagem.\n\n"
             "Você sente que alguma coisa está observando você."
         ),
         "options": [
             ("Entrar pela porta vermelha", "porta_vermelha"),
             ("Descer a escada", "escada"),
+            ("Entrar pela porta atrás", "sala_seguranca"),
+            ("Investigar a passagem na parede", "investigar_paredes"),
         ],
     },
 
+
+    # ========================================================
+    # INVESTIGAR PAREDES
+    # ========================================================
+
+    "investigar_paredes": {
+        "title": "🧱 A Parede Estranha",
+        "text": (
+            "Você encosta a mão na parede amarela.\n\n"
+            "Ela está quente.\n\n"
+            "Quando pressiona um dos tijolos, você escuta um clique.\n\n"
+            "Uma pequena passagem aparece na parede.\n\n"
+            "Você pode entrar ou voltar para o corredor."
+        ),
+        "options": [
+            ("Entrar na passagem", "sala_seguranca"),
+            ("Voltar para o corredor", "corredor"),
+            ("Tocar novamente na parede", "seguir_som"),
+            ("Fechar a passagem", "corredor"),
+        ],
+    },
+
+
+    # ========================================================
+    # SEGUIR O SOM
+    # ========================================================
+
+    "seguir_som": {
+        "title": "👣 O Som",
+        "text": (
+            "Você decide seguir o barulho.\n\n"
+            "Toc...\n"
+            "Toc...\n"
+            "Toc...\n\n"
+            "O som fica cada vez mais próximo.\n\n"
+            "Você chega a uma bifurcação.\n\n"
+            "De repente, o som para.\n\n"
+            "Você percebe que está completamente sozinho."
+        ),
+        "options": [
+            ("Seguir pela esquerda", "corredor"),
+            ("Seguir pela direita", "escada"),
+            ("Voltar correndo", "sala_abandonada"),
+            ("Ficar parado e esperar", "porta_vermelha"),
+        ],
+    },
+
+
+    # ========================================================
+    # SAIR DA SALA
+    # ========================================================
+
+    "sair_sala": {
+        "title": "🚪 Saindo da Sala",
+        "text": (
+            "Você decide não pegar nenhum dos objetos.\n\n"
+            "Ao sair da sala, percebe que o corredor mudou.\n\n"
+            "Agora existem várias portas.\n\n"
+            "Uma delas parece estar esperando por você."
+        ),
+        "options": [
+            ("Voltar ao corredor", "corredor"),
+            ("Seguir para a porta vermelha", "porta_vermelha"),
+            ("Descer a escada", "escada"),
+            ("Entrar na porta desconhecida", "sala_seguranca"),
+        ],
+    },
+
+
+    # ========================================================
+    # PORTA VERMELHA
+    # ========================================================
 
     "porta_vermelha": {
         "title": "🚨 A Porta Vermelha",
@@ -115,9 +206,15 @@ SCENES = {
         "options": [
             ("Tentar abrir a porta", "abrir_porta"),
             ("Voltar", "corredor"),
+            ("Bater na porta", "bater_porta"),
+            ("Examinar a fechadura", "examinar_fechadura"),
         ],
     },
 
+
+    # ========================================================
+    # PORTA FALHA
+    # ========================================================
 
     "porta_falha": {
         "title": "💥 A Porta Reage",
@@ -130,9 +227,16 @@ SCENES = {
         ),
         "options": [
             ("Voltar para o corredor", "corredor"),
+            ("Tentar bater novamente", "bater_porta"),
+            ("Correr para a escada", "escada"),
+            ("Se esconder na sala", "sala_abandonada"),
         ],
     },
 
+
+    # ========================================================
+    # ESTACIONAMENTO
+    # ========================================================
 
     "estacionamento": {
         "title": "🚗 Estacionamento Infinito",
@@ -149,9 +253,15 @@ SCENES = {
         "options": [
             ("Se esconder dentro de um carro", "esconder_carro"),
             ("Correr até o outro lado", "correr_estacionamento"),
+            ("Entrar no porta-malas", "porta_malas"),
+            ("Ficar parado e observar", "observar_silhueta"),
         ],
     },
 
+
+    # ========================================================
+    # ESCADA
+    # ========================================================
 
     "escada": {
         "title": "⬇️ A Escada",
@@ -168,9 +278,14 @@ SCENES = {
             ("Usar a lanterna", "usar_lanterna"),
             ("Continuar no escuro", "continuar_escuro"),
             ("Voltar", "corredor"),
+            ("Gritar por ajuda", "gritar_escada"),
         ],
     },
 
+
+    # ========================================================
+    # SALA DE SEGURANÇA
+    # ========================================================
 
     "sala_seguranca": {
         "title": "📹 Sala de Segurança",
@@ -188,9 +303,15 @@ SCENES = {
         "options": [
             ("Procurar a porta branca", "decidir_final"),
             ("Investigar os monitores", "investigar_monitores"),
+            ("Procurar documentos", "procurar_documentos"),
+            ("Desligar os monitores", "desligar_monitores"),
         ],
     },
 
+
+    # ========================================================
+    # FINAIS
+    # ========================================================
 
     "fim_bom": {
         "title": "🟢 FINAL BOM - VOCÊ ESCAPOU",
@@ -578,6 +699,26 @@ def executar_acao(acao):
                 mostrar_cena("porta_falha")
 
 
+    elif acao == "bater_porta":
+
+        ganhar_pontos(5)
+
+        mostrar_cena("porta_falha")
+
+
+    elif acao == "examinar_fechadura":
+
+        if possui_item("🗝️ Chave"):
+
+            ganhar_pontos(10)
+
+            mostrar_cena("estacionamento")
+
+        else:
+
+            mostrar_cena("porta_falha")
+
+
     # --------------------------------------------------------
     # LANERNA
     # --------------------------------------------------------
@@ -604,7 +745,14 @@ def executar_acao(acao):
         morreu = perder_vida()
 
         if not morreu:
+            mostrar_cena("sala_seguranca")
 
+
+    elif acao == "gritar_escada":
+
+        morreu = perder_vida()
+
+        if not morreu:
             mostrar_cena("sala_seguranca")
 
 
@@ -624,12 +772,26 @@ def executar_acao(acao):
         morreu = perder_vida(2)
 
         if not morreu:
+            mostrar_cena("sala_seguranca")
 
+
+    elif acao == "porta_malas":
+
+        ganhar_pontos(15)
+
+        mostrar_cena("sala_seguranca")
+
+
+    elif acao == "observar_silhueta":
+
+        morreu = perder_vida()
+
+        if not morreu:
             mostrar_cena("sala_seguranca")
 
 
     # --------------------------------------------------------
-    # FINAL SECRETO
+    # SALA DE SEGURANÇA
     # --------------------------------------------------------
 
     elif acao == "investigar_monitores":
@@ -643,6 +805,18 @@ def executar_acao(acao):
         else:
 
             mostrar_cena("fim_alternativo")
+
+
+    elif acao == "procurar_documentos":
+
+        ganhar_pontos(20)
+
+        mostrar_cena("decidir_final")
+
+
+    elif acao == "desligar_monitores":
+
+        mostrar_cena("fim_alternativo")
 
 
     # --------------------------------------------------------
@@ -773,4 +947,4 @@ mostrar_cena(
 )
 
 el("botao-iniciar").disabled = False
-el("botao-iniciar").innerText = "▶ INICIAR JOGO"
+el("botao-iniciar").innerText = "▶ INICIAR JOGO"    
